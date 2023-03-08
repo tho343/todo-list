@@ -1,13 +1,134 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,200;9..144,400;9..144,500;9..144,700&family=Lato:ital,wght@0,400;1,700&family=League+Spartan:wght@400;700&family=Overpass+Mono:wght@300;400;500;600;700&family=Overpass:wght@400;700&family=Poppins:wght@400;700&family=Red+Hat+Text:wght@400;700&display=swap');
+html {
+    
+    box-sizing: border-box;
+}
+body{
+    margin:-22px 0px;
+    height:100vh;
+    font-family: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+    --bright-blue: hsl(220, 98%, 61%);
+    --gradient-checkbox: linear-gradient(90deg,hsl(192, 100%, 67%),hsl(280, 87%, 65%)) ;
+    --text-color-very-light: hsl(0, 0%, 98%);
+    --text-color-light: hsl(236, 33%, 92%);
+    --text-color-medium-light: hsl(233, 11%, 84%);
+    --text-color-dark:hsl(236, 9%, 61%);
+    --text-color-very-dark:hsl(235, 19%, 35%);
+
+}
+[theme = 'dark'] {
+  --background-color: hsl(235, 24%, 19%)
+  --text-color-very-light:  hsl(234, 39%, 85%);
+    --text-color-light: hsl(236, 33%, 92%);
+    --text-color-medium-light: hsl(234, 11%, 52%);
+    --text-color-dark:hsl(233, 14%, 35%);
+    --text-color-very-dark:hsl(237, 14%, 26%);
+}
+input, button {
+    padding: 1em;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    border: none;
+}
+
+input[type="text"]{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 15rem;
+  background-color: var(--text-color-medium-light);
+}
+button{
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+h1 {
+  
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+}
+.form-container{
+  width: 500px;
+}
+.todo-form-container{
+  position: relative;
+  overflow: hidden;
+  height:40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.background-banner-image{
+  position: absolute;
+  top:0;
+  z-index: -10;
+  height: 300px;
+}
+.todo-item{
+  display: flex;
+   text-transform: capitalize;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 0.5px solid var(--text-color-dark);
+}
+.items-container{
+  width: 500px;
+  background-color: aliceblue;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.03);
+}
+.todo-container{
+  height:60vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.completed-item{
+  color:var(--text-color-dark);
+  text-decoration: line-through;
+}
+.item-title-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.buttons-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:1rem;
+}
+input[type="checkbox"]{
+  width: 1.5rem;
+  height:1.5rem;
+  border-radius: 50%;
+  appearance: none;
+  margin-right: 1rem;
+  border: 0.5px solid var(--text-color-dark);
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+
+}
+input[type="checkbox"]:checked{
+  
+  background-image: var(--gradient-checkbox);
+}
+.todo-item:nth-last-child(1){
+  border: none;
+}
+
+@media  only screen and (max-width: 600px){
+  .items-container{
+    width: 90vw;
+  }
 }
