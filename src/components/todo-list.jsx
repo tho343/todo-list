@@ -1,12 +1,18 @@
 import React from 'react'
-import { useState, Fragment} from 'react';
+import { useState, Fragment,useEffect} from 'react';
 import TodoForm from './todo-form';
 import TodoItem from './TodoItem';
 import backgroundPhoto from"../images/bg-desktop-light.jpg";
-
+import Footer from './footer.component';
  const TodoList = () => {
-    
-    const [todos,setTodos] = useState([]);
+    //to retrueve the saved item in local storage we should set the default value
+    //of todos to whatever the values saved in local storage.
+    const [todos,setTodos] = useState(()=>{
+        //get stored value
+        const saved = localStorage.getItem("todos");
+        const initialValue = JSON.parse(saved);
+        return initialValue || [];
+    });
     //add item to todo list 
     const addItem = (item) =>{
         if(!item.text){
@@ -48,6 +54,12 @@ import backgroundPhoto from"../images/bg-desktop-light.jpg";
         })
         setTodos(newArr);
     }
+    //add todo list to local storage
+    useEffect(()=>{
+        localStorage.setItem("todos" , JSON.stringify(todos));
+    },[todos]);
+    
+
 
   return (
     
@@ -64,7 +76,7 @@ import backgroundPhoto from"../images/bg-desktop-light.jpg";
             </div>
             
         </div>
-        
+        <Footer/>
     </Fragment>
   )
 }

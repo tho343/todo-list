@@ -5,6 +5,7 @@ html {
     box-sizing: border-box;
 }
 body{
+    background-color: var(--text-color-very-light);
     margin:-22px 0px;
     height:100vh;
     font-family: 'Poppins', sans-serif;
@@ -34,7 +35,15 @@ input, button {
     outline: none;
     border: none;
 }
-
+button {
+  text-align: center;
+  background-color: var(--text-color-medium-light);
+  animation: ease-in 1s linear;
+}
+button:hover{
+  filter: brightness(110%);
+  
+}
 input[type="text"]{
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -54,6 +63,13 @@ h1 {
 }
 .form-container{
   width: 500px;
+}
+.form-container>button{
+  border-radius: 0;
+  width: 17.3%;
+}
+.form-container>input{
+  width: 60%;
 }
 .todo-form-container{
   position: relative;
@@ -81,7 +97,7 @@ h1 {
 }
 .items-container{
   width: 500px;
-  background-color: aliceblue;
+  background-color: white;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.03);
@@ -130,5 +146,15 @@ input[type="checkbox"]:checked{
 @media  only screen and (max-width: 600px){
   .items-container{
     width: 90vw;
+  }
+  .form-container{
+    width: 90vw;
+  }
+  .form-container>input{
+    width: 50vw;
+  }
+  .form-container>button{
+    width:16.5vw;
+    
   }
 }
